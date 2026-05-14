@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Skull, playerCT, playerT } from "../../assets/Icons";
 import axios from "axios";
-import { apiUrl } from "../../API";
 
 interface AvatarProps {
   steamid: string;
@@ -18,9 +17,11 @@ interface AvatarProps {
 
 const getAvatar = async (steamid: string) => {
   try {
-    const player = await axios.get(`http://localhost:1349/players/${steamid}`);
-    if (player.data.avatar) {
-      return player.data.avatar;
+    const player = await axios.get(
+      `http://localhost:1349/api/players/avatar/steamid/${steamid}`,
+    );
+    if (player.data.custom) {
+      return player.data.custom;
     }
     return null;
   } catch (error) {
@@ -49,7 +50,8 @@ const Avatar = ({
     const fetchAvatar = async () => {
       try {
         const avatarUrl = await getAvatar(steamid);
-        setAvatar(avatarUrl && apiUrl + avatarUrl);
+        console.log(avatarUrl);
+        setAvatar(avatarUrl);
       } catch (error) {
         console.error(error);
       }

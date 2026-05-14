@@ -25,7 +25,7 @@ const TeamLogo = ({
     <div className={`logo`}>
       {logo && id ? (
         <img
-          src={`${apiUrl + logo}`}
+          src={`${apiUrl}/teams/logo/${id}`}
           width={width}
           height={height}
           alt={"Team logo"}
