@@ -7,7 +7,7 @@
 
 # CS2 SJ HUD
 
-<!-->
+<!--
 
 Fullfledged example of the React HUD made for HUD Manager. It has:
 
