@@ -37,6 +37,7 @@ code {
 }
 
 :root {
+  --hud-horizontal-width: 860px;
   --sub-panel-color: rgba(15, 20, 26, 0.98);
   --main-panel-color: rgba(8, 10, 13, 0.95);
   --primary: #0c9852;
