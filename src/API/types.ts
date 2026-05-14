@@ -62,6 +62,8 @@ export interface Tournament {
   groups: TournamentStage[];
   playoffs: TournamentStage;
   autoCreate: boolean;
+  phase?: string;
+  stage?: string;
 }
 export interface RoundData {
   round: number,
