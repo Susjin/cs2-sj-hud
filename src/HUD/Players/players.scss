@@ -47,6 +47,9 @@
           }
           .health_armor {
             padding-left: 8px;
+            .health{
+              justify-content: left;
+            }
           }
         }
       }
@@ -89,6 +92,9 @@
           .health_armor {
             flex-direction: row-reverse;
             padding-right: 8px;
+            .health{
+              justify-content: right;
+            }
           }
           .weapon_utility {
             flex-direction: row-reverse;
@@ -273,6 +279,7 @@
           align-items: center;
           gap: 2px;
           .health {
+            width: 35px;
             display: flex;
             color: white;
             font-weight: 700;

@@ -4,11 +4,10 @@ import Weapon from "./../Weapon/Weapon";
 import Avatar from "./Avatar";
 import "./observed.scss";
 import {
-  ArmorHelmet,
-  ArmorFull,
   HealthFull,
   Bullets,
 } from "../../assets/Icons";
+import Armor from "./../Indicators/Armor";
 import { apiUrl } from "./../../API";
 import { useAction } from "../../API/contexts/actions";
 import Bomb from "../Indicators/Bomb";
@@ -53,8 +52,12 @@ const Observed = ({ player }: { player: Player | null }) => {
               <HealthFull />
             </div>
             <div className="health text">{player.state.health}</div>
-            <div className="armor-icon icon">
-              {player.state.helmet ? <ArmorHelmet /> : <ArmorFull />}
+            <div className="armor-icon icon">          
+              <Armor
+                health= {player.state.health}
+                armor= {player.state.armor}
+                helmet= {player.state.helmet}
+              />
             </div>
           </div>
         </div>

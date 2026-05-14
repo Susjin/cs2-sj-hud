@@ -40,6 +40,12 @@ const Bomb = ({ timer, side }: IProps) => {
           {getCaption(timer.type, timer.player)}
         </div>
       ) : null}
+      
+      {timer ? (
+        <div className={`defuse_plant_timer`}>
+          ({timer.time.toFixed(3)}s)
+        </div>
+      ) : null}
 
       <div
         className="defuse_plant_bar"

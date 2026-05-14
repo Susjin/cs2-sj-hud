@@ -227,12 +227,12 @@
   position: fixed;
   display: flex;
   opacity: 1;
-  width: 300px;
+  width: 320px;
   height: 50px;
   top: 82px;
   align-items: center;
   color: white;
-  justify-content: center;
+  justify-content: left;
   background-color: var(--sub-panel-color);
   border-radius: var(--border-radius);
   overflow: hidden;
@@ -243,6 +243,7 @@
     width: 0%;
   }
   .defuse_plant_caption {
+    margin-left: 10px;
     z-index: 1;
     display: flex;
     text-transform: uppercase;
@@ -252,14 +253,22 @@
       margin-right: 13px;
     }
   }
+  .defuse_plant_timer {
+    z-index: 1;
+    margin-left: auto;
+    margin-right: 5px;
+    font-size: 15px;
+  }
   &.right {
-    left: calc(50% + 97px);
+    left: calc(50% + 87px);
+    background-color: var(--color-t);
     .defuse_plant_bar {
       left: 0;
     }
   }
   &.left {
-    right: calc(50% + 97px);
+    right: calc(50% + 87px);
+    background-color: var(--color-ct);
     .defuse_plant_bar {
       right: 0;
     }

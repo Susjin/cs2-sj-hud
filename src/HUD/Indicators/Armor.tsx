@@ -1,5 +1,5 @@
 import React from "react";
-import { ArmorFull, ArmorHelmet } from "../../assets/Icons";
+import { ArmorFull, ArmorHelmet, ArmorHalf, ArmorHalfHelmet } from "../../assets/Icons";
 
 const Armor = ({
   health,
@@ -13,7 +13,15 @@ const Armor = ({
   if (!health || !armor) return null;
   return (
     <div className={`armor_indicator`}>
-      {helmet ? <ArmorHelmet /> : <ArmorFull />}
+      {helmet 
+        ? armor >= 50 
+        ? <ArmorHelmet /> 
+        : <ArmorHalfHelmet />  
+      : armor >= 50 
+        ? <ArmorFull /> 
+        : armor != 0
+          ? <ArmorHalf />
+          : null}
     </div>
   );
 };
