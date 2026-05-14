@@ -1,13 +1,13 @@
 
 <p align="center">
-	<p align="center" style="font-weight:600; letter-spacing:1pt; font-size:20pt;">LEXOGRINE HUD</p>
-	<p align="center"><img src="icon.png" alt="Logo" width="80" height="80"></p>
-	<p align="center" style="font-weight:400;">Powered by <a href='https://github.com/lexogrine/hud-manager'><strong>« Lexogrine HUD Manager »</strong></a></p>
+	<p align="center" style="font-weight:600; letter-spacing:1pt; font-size:20pt;">Counter Strike 2 - São José - HUD</p>
+	<p align="center"><img src="icon.png" alt="Logo" width="70" height="77"></p>
+	<p align="center" style="font-weight:400;">Powered by <a href='https://github.com/JohnTimmermann/JTs-Hud'><strong>« JT's HUD Manager »</strong></a></p>
 </p>
 
-# Lexogrine HUD
+# CS2 SJ HUD
 
-  
+<!-->
 
 Fullfledged example of the React HUD made for HUD Manager. It has:
 
@@ -141,3 +141,4 @@ This killfeed detects who killed whom, if there was an assist (flash assist as w
 
 ## Radar
 Radar is custom React-based component, made by Hubert Walczak, and is easily editable from css.
+-->
