@@ -1,0 +1,262 @@
+.observed_container {
+  position: fixed;
+  width: 22rem;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  .avatar_holder {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--sub-panel-color-full, 1);
+
+    .avatar {
+      align-self: flex-end;
+      display: flex;
+      position: relative;
+      width: 140px;
+      height: 140px;
+    }
+  }
+
+  .healthbar-container {
+    border-bottom-left-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    position: relative;
+    width: 100%;
+    height: 6%;
+    display: flex;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    background-color: var(--sub-panel-color);
+    .healthbar_holder {
+      width: 100%;
+      height: 100%;
+      background-color: var(--border-color);
+      border-radius: 5px;
+      .healthbar {
+        height: 100%;
+        background-color: transparent;
+        transition-property: width;
+        transition-duration: 0.1s;
+        transition-timing-function: ease;
+        border-radius: 5px;
+      }
+    }
+    &.T {
+      .healthbar {
+        background-color: var(--color-new-t);
+      }
+    }
+    &.CT {
+      .healthbar {
+        background-color: var(--color-new-ct);
+      }
+    }
+  }
+
+  .observed {
+    position: relative;
+    width: 100%;
+    height: 35%;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    background-color: var(--sub-panel-color);
+    padding-left: 8px;
+    padding-right: 8px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+
+    .main_row,
+    .health_row,
+    .weapon_row {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .main_row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      .username_container {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        .username {
+          font-weight: 600;
+          font-size: 22px;
+          color: white;
+        }
+      }
+    }
+    .weapon_row {
+      width: 100%;
+      justify-content: end;
+      .bomb_kit_container {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        svg {
+          height: 18px;
+          width: 18px;
+        }
+        .defuse_indicator {
+          fill: var(--color-new-ct);
+        }
+        .bomb_indicator {
+          fill: rgb(253, 94, 115);
+        }
+      }
+      .knife_holder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .grenade_holder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+      }
+      .ammo_row {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        .ammo {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: end;
+          gap: 5px;
+          .ammo_counter {
+            display: flex;
+            height: 100%;
+            font-weight: 600;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 16px;
+            > div {
+              display: flex;
+              align-items: center;
+            }
+            .ammo_clip {
+              justify-content: flex-end;
+            }
+            .ammo_reserve {
+              justify-content: flex-start;
+            }
+          }
+          .ammo_icon_container {
+            display: flex;
+            height: 100%;
+            align-items: center;
+            justify-content: flex-end;
+            svg {
+              width: 18px;
+              height: 18px;
+              fill: white;
+            }
+          }
+        }
+      }
+    }
+
+    .health_row {
+      .health_armor_container {
+        position: relative;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        overflow: hidden;
+        .text {
+          display: flex;
+          align-items: center;
+          font-weight: 600;
+          font-size: 20px;
+          height: 100%;
+          padding-top: 2px;
+          z-index: 1;
+        }
+
+        .icon {
+          display: flex;
+          width: 20px;
+          height: 20px;
+          align-items: center;
+          z-index: 1;
+          svg {
+            max-height: 20px;
+            max-width: 20px;
+            fill: white;
+          }
+        }
+      }
+    }
+    &.T {
+      .health_row .icon svg,
+      .weapon_row .ammo .ammo_icon_container svg {
+        fill: var(--color-new-t);
+      }
+    }
+    &.CT {
+      .health_row .icon svg,
+      .weapon_row .ammo .ammo_icon_container svg {
+        fill: var(--color-new-ct);
+      }
+    }
+  }
+
+  #cameraFeed {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    position: absolute;
+    transform: scale(0.94);
+    left: 0px;
+    bottom: 0;
+    transform-origin: bottom left;
+    iframe {
+      position: relative;
+      border: none;
+      width: 750px;
+      height: 300px;
+    }
+  }
+}
