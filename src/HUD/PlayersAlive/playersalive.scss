@@ -1,0 +1,57 @@
+.players_alive {
+  display: flex;
+  align-items: center;
+  width: 166px;
+  height: 26px;
+  background-color: var(--sub-panel-color);
+  border-radius: var(--border-radius);
+  position: fixed;
+  top: 128px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+  transition: width 0.5s;
+  z-index: 6;
+
+  .counter_container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+    }
+
+    .team_counter {
+      width: 40px;
+      height: 100%;
+      font-size: 18px;
+    }
+
+    .CT {
+      color: var(--color-new-ct);
+    }
+
+    .T {
+      color: var(--color-new-t);
+    }
+  }
+
+  .title_container {
+    color: white;
+    text-transform: uppercase;
+    width: 86px;
+    height: 100%;
+    font-size: 9px;
+    font-weight: 600;
+  }
+
+  &.hide {
+    opacity: 0;
+  }
+}

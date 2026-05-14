@@ -52,6 +52,11 @@ export const api = {
   maps: {
     get: (): Promise<{ [key: string]: MapConfig }> => apiRequest("radar/maps"),
   },
+  tournaments: {
+    get: (): Promise<
+      { tournament: Types.Tournament | null } | Types.Tournament | null
+    > => apiRequest("tournament"),
+  },
 };
 
 export default api;

@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 import path from "path";
 import fs from "fs";
+import { mockModePlugin } from "./mockServer";
 
 const getDefinitionTemplate = (variable: string, content: string) => {
   return `export const ${variable} = ${content} as const;`;
@@ -26,7 +27,7 @@ const updateDefinitonFile = async ({
       : "keybindDefinition";
     fs.writeFileSync(
       path.join(".", "src", "API", "contexts", fileName),
-      getDefinitionTemplate(variableName, JSON.stringify(json, null, 2))
+      getDefinitionTemplate(variableName, JSON.stringify(json, null, 2)),
     );
   } catch (e) {
     console.error(`Updating ${fileName} failed:`);
@@ -42,7 +43,7 @@ const settingsAndKeybindsPlugin = () => {
     async handleHotUpdate({ file, read }) {
       if (file.endsWith("panel.json") || file.endsWith("keybinds.json")) {
         console.debug(
-          `[vite][${path.basename(file)}] Rebuilding type definitions...`
+          `[vite][${path.basename(file)}] Rebuilding type definitions...`,
         );
         const content = await read();
 
@@ -60,8 +61,16 @@ export default defineConfig(async ({ command, mode }) => {
   await updateDefinitonFile({
     filePath: path.join(".", "public", "keybinds.json"),
   });
+  const plugins: PluginOption[] = [
+    react(),
+    svgr(),
+    settingsAndKeybindsPlugin(),
+  ];
+  if (command === "serve") {
+    plugins.push(mockModePlugin());
+  }
   return {
-    plugins: [react(), svgr(), settingsAndKeybindsPlugin()],
+    plugins,
     build: {
       outDir: "build",
     },
