@@ -1,0 +1,59 @@
+.event_header {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--hud-horizontal-width, 860px);
+  height: 34px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px minmax(0, 1fr);
+  grid-template-areas: "name logo phase";
+  align-items: center;
+  justify-items: center;
+  padding: 0 14px;
+  background-color: var(--sub-panel-color);
+  color: #ffffff;
+  text-transform: uppercase;
+  border-radius: var(--border-radius);
+  z-index: 7;
+  box-sizing: border-box;
+  border-bottom: 3px solid var(--border-color);
+  overflow: visible;
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 46px;
+    object-fit: contain;
+    transform: translate(-50%, -46%);
+    z-index: 3;
+  }
+
+  .event_name,
+  .event_phase {
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  .event_name {
+    grid-area: name;
+    text-align: center;
+    justify-self: stretch;
+    color: #ffffff;
+  }
+
+  .event_phase {
+    display: flex;
+    grid-area: phase;
+    align-items: center;
+    justify-content: center;
+    justify-self: stretch;
+    color: #ffffff;
+  }
+}

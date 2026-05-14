@@ -2,6 +2,8 @@ import { useState } from "react";
 import TeamBox from "./../Players/TeamBox";
 import MatchBar from "../MatchBar/MatchBar";
 import SeriesBox from "../MatchBar/SeriesBox";
+import PlayersAlive from "../PlayersAlive/PlayersAlive";
+import EventHeader from "../EventHeader/EventHeader";
 import Observed from "./../Players/Observed";
 import RadarMaps from "./../Radar/RadarMaps";
 import Trivia from "../Trivia/Trivia";
@@ -58,20 +60,16 @@ const Layout = ({ game, match }: Props) => {
   const isFreezetime =
     (game.round && game.round.phase === "freezetime") ||
     game.phase_countdowns.phase === "freezetime";
+  const leftAlive = leftPlayers.filter(
+    (player) => player.state.health > 0
+  ).length;
+  const rightAlive = rightPlayers.filter(
+    (player) => player.state.health > 0
+  ).length;
+
   return (
     <div className="layout">
-      <div className={`players_alive`}>
-        <div className="title_container">Players alive</div>
-        <div className="counter_container">
-          <div className={`team_counter ${left.side}`}>
-            {leftPlayers.filter((player) => player.state.health > 0).length}
-          </div>
-          <div className={`vs_counter`}>VS</div>
-          <div className={`team_counter ${right.side}`}>
-            {rightPlayers.filter((player) => player.state.health > 0).length}
-          </div>
-        </div>
-      </div>
+      <EventHeader />
       <Killfeed />
       {/* <Overview match={match} map={game.map} players={game.players || []} /> */}
       <RadarMaps match={match} map={game.map} game={game} />
@@ -80,6 +78,12 @@ const Layout = ({ game, match }: Props) => {
         phase={game.phase_countdowns}
         bomb={game.bomb}
         match={match}
+      />
+      <PlayersAlive
+        leftSide={left.side}
+        rightSide={right.side}
+        leftAlive={leftAlive}
+        rightAlive={rightAlive}
       />
       <Pause phase={game.phase_countdowns} />
       <Timeout map={game.map} phase={game.phase_countdowns} />
