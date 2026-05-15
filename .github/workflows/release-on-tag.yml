@@ -1,0 +1,54 @@
+name: Build and Release HUD on Tag
+
+on:
+  push:
+    tags:
+      - '*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Clean old zip files
+        run: rm -f *.zip
+
+      - name: Build and sign HUD
+        run: npm run sign
+
+      - name: Resolve generated zip
+        id: resolve_zip
+        shell: bash
+        run: |
+          shopt -s nullglob
+          zips=( *.zip )
+
+          if [ ${#zips[@]} -eq 0 ]; then
+            echo "Nenhum arquivo .zip foi gerado na raiz do projeto."
+            exit 1
+          fi
+
+          latest_zip=$(ls -t *.zip | head -n 1)
+          echo "zip_path=$latest_zip" >> "$GITHUB_OUTPUT"
+          echo "Arquivo encontrado: $latest_zip"
+
+      - name: Publish GitHub release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.resolve_zip.outputs.zip_path }}
+          generate_release_notes: true
