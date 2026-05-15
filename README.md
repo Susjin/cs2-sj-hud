@@ -7,6 +7,83 @@
 
 # CS2 SJ HUD
 
+HUD customizada para transmissões de Counter-Strike 2 da São José, construída com React + Vite e com suporte a execução local usando dados mockados.
+
+## Requisitos
+
+- Node.js 20 (recomendado para manter compatibilidade com o CI)
+- npm
+
+## Instalação
+
+```bash
+npm install
+```
+
+## Desenvolvimento (com mock)
+
+O projeto já inicia em modo desenvolvimento com servidor mock ativo automaticamente.
+
+```bash
+npm run dev
+```
+
+- URL da HUD: `http://localhost:3500`
+- Servidor mock offline: `http://localhost:1349` (porta padrão)
+- A rota `http://localhost:1349/development` redireciona para a HUD em modo de desenvolvimento
+
+Caso precise alterar a porta do mock:
+
+```bash
+# PowerShell
+$env:MOCK_PORT=1350; npm run dev
+```
+
+## Build e empacotamento
+
+### Gerar build de produção
+
+```bash
+npm run build
+```
+
+### Gerar ZIP para distribuição
+
+```bash
+npm run pack
+```
+
+### Gerar ZIP assinado
+
+```bash
+npm run sign
+```
+
+O comando `sign` compila o projeto e assina os arquivos antes de gerar o `.zip`.
+
+## Release por tag (GitHub Actions)
+
+O workflow `.github/workflows/release-on-tag.yml` executa automaticamente a cada `push` de tag e publica o `.zip` gerado na release do GitHub.
+
+### Passo a passo para criar tag e disparar o Actions
+
+```bash
+# 1) Garantir branch atualizada
+git checkout main
+git pull
+
+# 2) Criar tag anotada (exemplo)
+git tag -a v1.0.2 -m "release: v1.0.2"
+
+# 3) Enviar tag para o remoto
+git push origin v1.0.2
+```
+
+Após o push da tag:
+
+- Acesse a aba **Actions** do repositório e acompanhe o job `Build and Release HUD on Tag`
+- Ao finalizar com sucesso, o artefato `.zip` ficará anexado na release criada para a tag
+
 <!--
 
 Fullfledged example of the React HUD made for HUD Manager. It has:
