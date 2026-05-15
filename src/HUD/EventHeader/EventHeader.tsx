@@ -1,14 +1,21 @@
-import { useEffect, useState } from "react";
-import api from "../../API";
 import { Tournament } from "../../API/types";
+import tournamentLogo from "../../assets/images/sj-prime-league-season-2-logo.png";
 import "./eventheader.scss";
 
-type TournamentResponse = Tournament | { tournament: Tournament | null } | null;
-
-const getTournament = (response: TournamentResponse) => {
-  if (!response) return null;
-  if ("tournament" in response) return response.tournament;
-  return response;
+const mockTournament: Tournament = {
+  _id: "mock-sj-prime-s2",
+  name: "SJ Prime League Season 2",
+  logo: tournamentLogo,
+  groups: [],
+  playoffs: {
+    type: "single",
+    matchups: [],
+    teams: 0,
+    phases: 0,
+    participants: [],
+  },
+  autoCreate: false,
+  phase: "Group Stage",
 };
 
 const getLogoSrc = (logo: string) => {
@@ -23,18 +30,15 @@ const getLogoSrc = (logo: string) => {
   return `data:image/jpeg;base64,${logo}`;
 };
 
+/**
+ * Renderiza o cabeçalho do evento com dados mockados locais.
+ *
+ * @returns JSX com nome, logo e fase do torneio.
+ * @example
+ * <EventHeader />
+ */
 const EventHeader = () => {
-  const [tournament, setTournament] = useState<Tournament | null>(null);
-
-  useEffect(() => {
-    api.tournaments
-      .get()
-      .then((response) => setTournament(getTournament(response)))
-      .catch(() => setTournament(null));
-  }, []);
-
-  if (!tournament) return null;
-
+  const tournament = mockTournament;
   const phaseLabel = tournament.phase || tournament.stage || "Main event";
   const logoSrc = getLogoSrc(tournament.logo);
 
