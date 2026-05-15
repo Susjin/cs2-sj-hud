@@ -1,10 +1,11 @@
 import { Tournament } from "../../API/types";
+import tournamentLogo from "../../assets/images/sj-prime-league-season-2-logo.png";
 import "./eventheader.scss";
 
 const mockTournament: Tournament = {
   _id: "mock-sj-prime-s2",
   name: "SJ Prime League Season 2",
-  logo: "/sj-prime-league-season-2-logo.png",
+  logo: tournamentLogo,
   groups: [],
   playoffs: {
     type: "single",
