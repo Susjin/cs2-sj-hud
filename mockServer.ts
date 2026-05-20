@@ -55,7 +55,7 @@ const provider = {
 const teams: MockTeam[] = [
   {
     _id: "team-macolts",
-    name: "Bar do Macolts",
+    name: "G3neration Z",
     country: "BR",
     shortName: "BM",
     logo: "aurora-byte",
