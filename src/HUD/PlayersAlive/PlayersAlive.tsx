@@ -17,7 +17,7 @@ const PlayersAlive = ({
   <div className="players_alive">
     <div className="counter_container">
       <div className={`team_counter ${leftSide}`}>{leftAlive}</div>
-      <div className="title_container">Players left</div>
+      <div className="title_container">VS</div>
       <div className={`team_counter ${rightSide}`}>{rightAlive}</div>
     </div>
   </div>

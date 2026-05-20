@@ -1,12 +1,12 @@
 .players_alive {
   display: flex;
   align-items: center;
-  width: 166px;
-  height: 26px;
+  width: 106px;
+  height: 36px;
   background-color: var(--sub-panel-color);
-  border-radius: var(--border-radius);
+  border-radius: calc(var(--border-radius) - 2px);
   position: fixed;
-  top: 128px;
+  top: 142px;
   left: 50%;
   transform: translateX(-50%);
   opacity: 1;
@@ -28,9 +28,12 @@
     }
 
     .team_counter {
-      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
       height: 100%;
-      font-size: 18px;
+      font-size: 21px;
     }
 
     .CT {
@@ -45,9 +48,9 @@
   .title_container {
     color: white;
     text-transform: uppercase;
-    width: 86px;
+    width: 30px;
     height: 100%;
-    font-size: 9px;
+    font-size: 18px;
     font-weight: 600;
   }
 
