@@ -17,6 +17,7 @@
   }
 }
 #matchbar {
+  --team-logo-box-size: 80px;
   --team-max-name-width: 220px;
   --team-block-width: calc((var(--hud-horizontal-width, 860px) - 154px - 114px) / 2);
   --matchbar-divider-color: rgba(255, 255, 255, 0.12);
@@ -139,16 +140,16 @@
     .logo {
       display: flex;
       flex-direction: row;
-      width: 105px;
-      min-width: 105px;
+      width: var(--team-logo-box-size);
+      min-width: var(--team-logo-box-size);
       height: 70px;
       align-items: center;
       overflow: hidden;
       background-color: var(--sub-panel-color);
       justify-content: center;
       img {
-        max-width: 90%;
-        max-height: 65%;
+        max-width: 100%;
+        max-height: 90%;
       }
     }
     &.left {
@@ -168,9 +169,9 @@
   }
   .team-name {
     display: flex;
-    width: calc(var(--team-block-width) - 105px);
-    min-width: calc(var(--team-block-width) - 105px);
-    max-width: calc(var(--team-block-width) - 105px);
+    width: calc(var(--team-block-width) - var(--team-logo-box-size));
+    min-width: calc(var(--team-block-width) - var(--team-logo-box-size));
+    max-width: calc(var(--team-block-width) - var(--team-logo-box-size));
     height: 70px;
     padding: 0 12px;
     box-sizing: border-box;
@@ -181,12 +182,16 @@
     line-height: 1.02;
     color: white;
     background-color: var(--sub-panel-color);
-    border-left: 1px solid var(--matchbar-divider-color);
-    border-right: 1px solid var(--matchbar-divider-color);
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
+    &.left {
+      border-right: 1px solid var(--matchbar-divider-color);
+    }
+    &.right {
+      border-left: 1px solid var(--matchbar-divider-color);
+    }
   }
   .score {
     display: flex;

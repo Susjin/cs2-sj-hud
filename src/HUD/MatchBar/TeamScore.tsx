@@ -39,7 +39,7 @@ const TeamScore = ({ orientation, timer, team }: IProps) => {
   return (
     <>
       <div className={`team ${orientation}`}>
-        <div className="team-name" style={{ fontSize: `${teamNameFontSize}px` }}>
+        <div className={`team-name ${orientation}`} style={{ fontSize: `${teamNameFontSize}px` }}>
           {teamName}
         </div>
         <TeamLogo team={team} />
