@@ -1,7 +1,7 @@
 {
   "name": "CS2 SJ Prime League HUD",
-  "version": "1.0.1",
-  "author": "John Timmermann",
+  "version": "1.0.2",
+  "author": "peteR | fabs",
   "legacy": false,
   "radar": true,
   "killfeed": false,
