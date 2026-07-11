@@ -1,10 +1,10 @@
 import { Tournament } from "../../API/types";
-import tournamentLogo from "../../assets/images/sj-prime-league-season-2-logo.png";
+import tournamentLogo from "../../assets/images/cs2-sj.png";
 import "./eventheader.scss";
 
 const mockTournament: Tournament = {
   _id: "mock-sj-prime-s2",
-  name: "SJ Prime League Season 2",
+  name: "1º Camp Montado CS2 SJ",
   logo: tournamentLogo,
   groups: [],
   playoffs: {
@@ -15,7 +15,7 @@ const mockTournament: Tournament = {
     participants: [],
   },
   autoCreate: false,
-  phase: "Grand Final",
+  phase: "Fase de Pontos",
 };
 
 const getLogoSrc = (logo: string) => {

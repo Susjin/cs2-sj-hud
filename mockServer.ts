@@ -43,7 +43,7 @@ const MOCK_PORT = Number(process.env.MOCK_PORT || 1349);
 const tournamentLogoPath = path.join(
   process.cwd(),
   "public",
-  "sj-prime-league-season-2-logo.png",
+  "cs2-sj.png",
 );
 const provider = {
   name: "Counter-Strike: Global Offensive" as const,
