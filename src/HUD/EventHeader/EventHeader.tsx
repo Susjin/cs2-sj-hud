@@ -15,7 +15,7 @@ const mockTournament: Tournament = {
     participants: [],
   },
   autoCreate: false,
-  phase: "Fase de Grupos",
+  phase: "Playoffs",
 };
 
 const getLogoSrc = (logo: string) => {
