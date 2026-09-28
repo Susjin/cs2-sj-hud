@@ -4,7 +4,7 @@ import "./eventheader.scss";
 
 const mockTournament: Tournament = {
   _id: "mock-sj-prime-s2",
-  name: "3º Camp Sorteado CS2 SJ",
+  name: "1º Camp Low Level CS2 SJ",
   logo: tournamentLogo,
   groups: [],
   playoffs: {
@@ -15,7 +15,7 @@ const mockTournament: Tournament = {
     participants: [],
   },
   autoCreate: false,
-  phase: "Playoffs",
+  phase: "Campeonato Online",
 };
 
 const getLogoSrc = (logo: string) => {
